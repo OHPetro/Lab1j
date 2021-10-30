@@ -14,10 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Write a delimiter : ");
-        Scanner s = new Scanner(System.in);
-        String delimiter = s.nextLine();
-        String line = "";
+        Delem.delem();
+
 
 
         try {
@@ -29,7 +27,7 @@ public class Main {
 
 
         }catch(FileNotFoundException e){
-            System.out.println("pezda");
+            System.out.println("gg");
         }
 
 
