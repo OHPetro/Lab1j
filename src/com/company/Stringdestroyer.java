@@ -25,22 +25,38 @@ public class Stringdestroyer {
                     if(value[i].indexOf("“") == 0){
                         value[i] = value[i].replaceFirst("“","");
 
-                        if(value[i].contains("““") == true){
+                        if(value[i].lastIndexOf("“") == value[i].length()-1){
+                            if(value[i].indexOf("“") ==  value[i].indexOf("““")){
+                                value[i] = value[i].substring(0,value[i].length()-1);
+                                value[i] = value[i].replaceAll("““","“");
+                            }else if(value[i].indexOf("“") != value[i].length()-1){
+                                value[i] = value[i].replaceFirst("“","");
+                                value[i] = value[i].replaceAll("““","“");
+                            }else{
+                                value[i] = value[i].substring(0,value[i].length()-1);
+                            }
 
-                            value[i] = value[i].substring(0,value[i].length()-1);
-                            value[i] = value[i].replaceAll("““","“");
-                        }else if(value[i].indexOf("“") != value[i].length()-1){
+
+                        }else{
                             value[i] = value[i].replaceFirst("“","");
                             value[i] = value[i].replaceAll("““","“");
-                        }else{
-                            value[i] = value[i].replace(value[i].substring(value[i].length()-1),"");
                         }
 
-                    }else if(value[i].contains("“") == true){
-                        value[i] = value[i].replaceAll("““","“");
+
 
                     }else{
-                        value[i] =value[i];
+                        //value[i] =value[i];
+                        String[] ss = value[i].split(",");
+                        for(int b=0;b<ss.length;b++){
+                            System.out.println(ss[b]);
+                            int count = Counterforq.count(ss[b]);
+                            if(count % 2 != 0 ){
+                                value[i] ="";
+                            }else{
+                                value[i] = value[i].replaceAll("““","“");
+                                value[i] =value[i];
+                            }
+                        }
                     }
 
                     sb.append(value[i]+" ");

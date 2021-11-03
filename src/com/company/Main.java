@@ -15,8 +15,9 @@ public class Main {
     public static void main(String[] args) {
 
         Delem.delem();
-
-
+        String s = "a“bc,1“23";
+        int count = Counterforq.count(s);
+        System.out.println(count);
 
         try {
             PrintWriter pw = new PrintWriter(csv_wpath);
